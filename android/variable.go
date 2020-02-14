@@ -19,7 +19,7 @@ import (
 	"reflect"
 	"runtime"
 	"strings"
-
+        "cygnus/soong/android"
 	"github.com/google/blueprint/proptools"
 )
 
@@ -152,6 +152,9 @@ type variableProperties struct {
 		Device_support_hwfde_perf struct {
 			Cflags []string
 		}
+           // include cygnus variables
+           Cygnus android.Product_variables
+
 	} `android:"arch_variant"`
 }
 
@@ -319,6 +322,8 @@ type productVariables struct {
 	ProductHiddenAPIStubsTest   []string `json:",omitempty"`
 
 	TargetFSConfigGen []string `json:",omitempty"`
+        // include cygnus variables
+         Cygnus android.ProductVariables
 }
 
 func boolPtr(v bool) *bool {
